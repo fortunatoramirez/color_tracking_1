@@ -34,7 +34,7 @@ def readFrameAndSend(camera, hsv_min, hsv_max, ip_address, port, id):
                 cv2.putText(frame, "X={},Y={}".format(X,Y), (X-25, Y-25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
 
                 cv2.drawContours(frame, contour, -1, (0,0,255), 3)
-                message = "{\"id\":"+id+","+"\"x\":"+str(X)+",\"y\":"+str(Y)+"}"
+                message = "{\"id\":"+str(id)+","+"\"x\":"+str(X)+",\"y\":"+str(Y)+"}"
                 socketIO.emit("position",message)
 
         cv2.imshow('frame', frame)
